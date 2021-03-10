@@ -1,0 +1,25 @@
+{
+  "name": "favouritsapp",
+  "version": "1.0.0",
+  "description": "Save my personal favourite movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VieiraTino/favouritsapp.git"
+  },
+  "author": "Tino Vieira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VieiraTino/favouritsapp/issues"
+  },
+  "homepage": "https://github.com/VieiraTino/favouritsapp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "request": "^2.88.2",
+    "validator": "^13.5.2"
+  }
+}
