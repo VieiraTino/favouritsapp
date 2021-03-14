@@ -1,11 +1,17 @@
 const express = require('express');
+const Favourite = require('../models/favourites');
 const router = new express.Router();
 
-router.get('/favourites', async (req, res) => {
+router.post('/favourite', async (req, res) => {
+    const newFavourite = new Favourite({
+        ...req.body,
+        owner: 'Ti'
+    });
 
     try {
-        console.log('resultou')
-        res.status(201).send('Resultou');
+        console.log(newFavourite);
+        await newFavourite.save();
+        res.status(201).send(newFavourite);
     } catch(e) {
         res.status(400).send(e);
     }
