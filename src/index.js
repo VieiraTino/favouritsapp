@@ -1,9 +1,9 @@
 const express = require('express');
 
+const userRouter = require('./routers/user')
 const moviesRouter = require('./routers/movies')
 const favouritesRouter = require('./routers/favourites')
-const favouritesRouter = require('./routers/user')
-// require('./db/database');
+require('./db/database');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,7 +21,7 @@ app.use(favouritesRouter);
 // const viewsPath = path.join(__dirname, '../templates/views');
 
 // app.set('view engine', 'hbs');
-// app.set('views', viewsPath);
+// app.set('views', viewsPath);a
 
 
 

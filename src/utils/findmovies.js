@@ -15,4 +15,6 @@ const findmovies = (movie, callback) => {
     })
 }
 
+// poster https://www.themoviedb.org/t/p/w1280/XWz5SS5g5mrNEZjv3FiGhqCMOQ.jpg
+
 module.exports = findmovies;
