@@ -1,8 +1,8 @@
 const express = require('express');
 
-const userRouter = require('./routers/user')
-const moviesRouter = require('./routers/movies')
-const favouritesRouter = require('./routers/favourites')
+const userRouter = require('./routers/user');
+const moviesRouter = require('./routers/movies');
+const favouritesRouter = require('./routers/favourites');
 require('./db/database');
 
 const app = express();

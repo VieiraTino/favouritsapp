@@ -5,21 +5,20 @@ const validator = require('validator'); // ?????????
 
 const favouriteSchema = new mongoose.Schema(
     {
-        movie: {
+        userMovieName: {
             type: String,
             required: true,
-            trim: true
-        },
-        idOnTMDB: {
-            type: Number,
-            required: true,
-            unique: true,
             trim: true
         },
         owner: {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
             ref: 'User'
+        },
+        myBdId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Movie'
         }
     }, 
     {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const Favourite = require('./favourites');
+const Favourite = require('./favourite');
 
 const userSchema = new mongoose.Schema(
     {
