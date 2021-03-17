@@ -3,6 +3,7 @@ const User = require('../models/user');
 const Favourites = require('../models/favourite');
 const router = new express.Router();
 const auth = require('../middleware/auth');
+const Favourite = require('../models/favourite');
 
 router.post('/user', async (req, res) => {
     try{
