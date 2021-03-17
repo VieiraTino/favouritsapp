@@ -92,13 +92,26 @@ router.patch('/favourite/:id', auth, async (req, res) => {
             return res.status(400).send({error: 'Não foi encontrado nenhum favorito com o esse ID'});
         }
 
-        console.log(req.params)
-
         res.status(200).send(favourite)
 
     } catch(e) {
         console.log(e);
         res.status(401).send({error: 'O ID introduzido não é válido',});
+    }
+})
+
+//apagar favorito
+router.delete('/favourite/:id', auth, async (req, res) => {
+    try{
+
+        const deleted = await Favourite.findByIdAndDelete({_id: req.params.id});
+
+        if(!deleted) {
+            return res.status(400).send({error: 'Não foi encontrado nenhum favorito com o esse ID'})
+        }
+        res.status(200).send(deleted)
+    } catch(e) {
+        res.status(400).send(e)
     }
 })
 
@@ -126,6 +139,5 @@ router.get('/favourites', auth, async (req, res) => {
         res.status(400).send(e);
     }
 });
-
 
 module.exports = router;
