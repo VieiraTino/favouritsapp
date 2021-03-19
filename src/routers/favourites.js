@@ -5,6 +5,8 @@ const router = new express.Router();
 const auth = require('../middleware/auth')
 const movieinfo = require('../utils/movieinfo')
 
+const mail = require('../emails/email');
+
 // criar favorito -> recebe nome a dar ao favorito e id do filme no imdb
 router.post('/favourite', auth, async (req, res) => {
     const appMovie = await Movie.findOne({idOnTMDB: req.body.idOnTMDB});
@@ -115,29 +117,41 @@ router.delete('/favourite/:id', auth, async (req, res) => {
     }
 })
 
-//ver todos os favoritos. Se receber uma query "movie" verifica se esse nome existe nos favoritos
 router.get('/favourites', auth, async (req, res) => {
-    if(Object.keys(req.query).length){
-        try {
-            const favourite = await Favourite.find({userMovieName: { $regex: req.query.movie }, owner: req.user._id});
-// RESOLVER: Se for minusculas e o titlo estiver maiuscula, não encontra.
-            if(!Object.keys(favourite).length){
-                return res.status(400).send({error: 'Não existe nos seus favoritos'})
+    if(!req.query.movie){
+        try{
+            await req.user.populate('favourites').execPopulate();
+            if(req.user.favourites.length) {
+                if(req.query.email == 'true') {
+                    await mail.sendFavouritesMail({username: req.body.username, email: req.body.email})
+                    console.log('email')
+                }
+                return res.status(201).send(req.user.favourites);
             }
+            
+            return res.status(400).send('Não tem ainda favoritos');
+        } catch(e) {
+            return res.status(400).send(e);
+        }
+    } 
 
-            return res.status(201).send(favourite);
+    try {
+        const favourite = await Favourite.find({userMovieName: { $regex: req.query.movie }, owner: req.user._id});
+            // RESOLVER: Se for minusculas e o titlo estiver maiuscula, não encontra.
+        if(!Object.keys(favourite).length){
+
+            return res.status(400).send({error: 'Não existe nos seus favoritos'})
+        } else if(req.query.email == 'true') {
+
+            await mail.sendFavouritesMail({username: 'Tino', email: req.user.email})
+        }
+
+        return res.status(201).send(favourite);
 
         } catch(e){
-            return res.status(400).send(e)
+        return res.status(400).send(e)
         }
-    }
 
-    try{
-        await req.user.populate('favourites').execPopulate();
-        res.status(201).send(req.user.favourites);
-    } catch(e) {
-        res.status(400).send(e);
-    }
-});
+})
 
 module.exports = router;

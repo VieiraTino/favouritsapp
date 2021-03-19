@@ -5,10 +5,14 @@ const router = new express.Router();
 const auth = require('../middleware/auth');
 const Favourite = require('../models/favourite');
 
+const mail = require('../emails/email');
+
 router.post('/user', async (req, res) => {
     try{
         const user = new User(req.body);
         const token = await user.generateToken();
+        await mail.sendWelcomeMail({username: req.body.username, email: req.body.email});
+        console.log('aqui')
         await user.save();
         
         res.status(201).send({user, token})
@@ -20,6 +24,7 @@ router.post('/user', async (req, res) => {
 router.delete('/user', auth, async (req, res) => {
     try {
         await req.user.remove();
+        await mail.sendCancelMail({username: req.user.username, email: req.user.email})
         res.send({deletedUserInfo: req.user, message: 'User apagado com sucesso'});
     } catch(e) {
         res.status(404).send(e);

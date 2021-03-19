@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/VieiraTino/favouritsapp#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
     "handlebars": "^4.7.7",
