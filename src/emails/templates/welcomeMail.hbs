@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+    <title>Welcome Message</title>
 </head>
 <body>
-    <h1>teste {{username}} e este {{email}}</h1>
+    <!-- {{username}} / {{email}} -->
+    <div class="container">
+        <div class="welcomeMessage">
+            <h1>Olá, {{username}}.</h1>
+            <p>Obrigado por te juntares à nossa aplicação onde podes guardar os teus filmes favoritos.</p>
+            <p>Começa já a guardar os teus favoritos. Na nossa plataforma podes procurar no TMDB e adicionar à tua aplicação.</p>
+        </div>
+        <div class="tmdbInfo">
+            <h2>O conteudo dos filmes é proveniente, e da responsabilidade, de:</h2>
+            <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="TMDB Logotipo">
+        </div>
+    </div>
 </body>
 </html>
