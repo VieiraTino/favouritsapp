@@ -7,7 +7,18 @@ const movieinfo = (id, callback) => {
         if (error) {
             callback('Não foi possível ligar à API', undefined);
         } else {
-            callback(undefined, body);
+
+            const result = {
+                original_title: body.original_title,
+                sinopse: body.overview,
+                homepage: body.homepage,
+                poster_path: "https://www.themoviedb.org/t/p/w1280" + body.poster_path,
+                release_date: body.release_date,
+                vote_average: body.vote_average,
+                vote_count: body.vote_count
+            }
+
+            callback(undefined, result);
         }
     })
 }
