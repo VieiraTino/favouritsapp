@@ -8,9 +8,9 @@ const getMovies = async (favourite) => {
     for (const favouriteItem of favourite) {
         let movie = await Movie.findOne({_id: favouriteItem.myBdId});
         
-        movie._doc['userMovieName'] = 'teste';
+        movieInfo = {userMovieName: favouriteItem.userMovieName, ...movie._doc}
 
-        moviesInfo.push(movie)
+        moviesInfo.push(movieInfo)
     }
 
     return moviesInfo;

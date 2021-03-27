@@ -22,17 +22,42 @@ const sendWelcomeMail = async (userData) => {
   sendEmail(emailData);
 };
 
-const sendFavouritesMail = async (userData) => {
-  console.log('1')
+const sendFavouritesMail = async (userData, renderData) => {
+
   let emailData = {}
-  let fileMail = fs.readFileSync(path.join(__dirname + '/templates/favouritesMail.hbs'));
+  const fileMail = fs.readFileSync(path.join(__dirname + '/templates/favouritesMail.hbs'));
+  let cardMail = fs.readFileSync(path.join(__dirname + '/templates/favouriteCard.hbs'));
+  let cardsCompiled = '';
+
+  for (const element of renderData) {
+    dataToCompile = {
+      userMovieName: element.userMovieName,
+      idOnTMDB: element.idOnTMDB,
+      ...element.tmdbData
+    }
+
+    // userMovieName
+    // idOnTMDB
+    // original_title
+    // sinopse
+    // homepage ???????????
+    // poster_path
+    // release_date
+    // vote_average
+    // vote_count
+    
+    renderedCard = renderToString(cardMail.toString(), dataToCompile).toString()
+    cardsCompiled = cardsCompiled.concat(renderedCard);
+  }
+
+  userData['favouriteCards'] = cardsCompiled;
 
   emailData['to'] = userData.email;
   emailData['from'] = "tinovieira27@gmail.com";
   emailData['subject'] = "Registo na aplicação dos teus filmes favoritos";
   emailData['text'] = "Olá, " + userData.username + ".</br>Este é o texto do text";
   emailData['html'] = renderToString(fileMail.toString(), userData);
-
+  
   sendEmail(emailData);
 };
 
@@ -50,7 +75,7 @@ const sendCancelMail = async (userData) => {
 };
 
 const sendEmail = (emailData) => {
-    sgMail.send(emailData);
+  sgMail.send(emailData);
 }
 
 module.exports = {
