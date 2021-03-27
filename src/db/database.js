@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionURL = 'mongodb://127.0.0.1:27017/favoritesapp';
+const connectionURL = 'mongodb+srv://favouritesApp:w334r4fQg5kdrbN3@cluster0.5el1z.mongodb.net/favouritesapp';
 
 mongoose.connect(connectionURL, {
     useNewUrlParser: true,
