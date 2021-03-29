@@ -9,7 +9,7 @@ const getMovies = require('../utils/favouriteMovies');
 const mail = require('../emails/email');
 
 // criar favorito -> recebe nome a dar ao favorito e id do filme no imdb
-router.post('/favourite', auth, async (req, res) => {
+router.post('/api/favourite', auth, async (req, res) => {
     const appMovie = await Movie.findOne({ idOnTMDB: req.body.idOnTMDB });
 
 
@@ -66,7 +66,7 @@ router.post('/favourite', auth, async (req, res) => {
 });
 
 // info do favorito
-router.get('/favourite/:id', auth, async (req, res) => {
+router.get('/api/favourite/:id', auth, async (req, res) => {
     try {
         const favourite = await Favourite.findOne({ _id: req.params.id, owner: req.user._id });
 
@@ -80,7 +80,7 @@ router.get('/favourite/:id', auth, async (req, res) => {
 });
 
 //atualizar nome do favorito
-router.patch('/favourite/:id', auth, async (req, res) => {
+router.patch('/api/favourite/:id', auth, async (req, res) => {
     const keys = Object.keys(req.body);
     const allowedUpdates = ['movie'];
     const isValidOperation = keys.every((key) => allowedUpdates.includes(key));
@@ -105,7 +105,7 @@ router.patch('/favourite/:id', auth, async (req, res) => {
 })
 
 //apagar favorito
-router.delete('/favourite/:id', auth, async (req, res) => {
+router.delete('/api/favourite/:id', auth, async (req, res) => {
     try {
 
         const deleted = await Favourite.findByIdAndDelete({ _id: req.params.id });
@@ -120,7 +120,7 @@ router.delete('/favourite/:id', auth, async (req, res) => {
 })
 
 // ver favoritos
-router.get('/favourites', auth, async (req, res) => {
+router.get('/api/favourites', auth, async (req, res) => {
     if (!req.query.movie) {
         try {
             await req.user.populate('favourites').execPopulate();

@@ -7,12 +7,12 @@ const Favourite = require('../models/favourite');
 
 const mail = require('../emails/email');
 
-router.post('/user', async (req, res) => {
+router.post('/api/user', async (req, res) => {
     try{
         const user = new User(req.body);
         const token = await user.generateToken();
         await mail.sendWelcomeMail({username: req.body.username, email: req.body.email});
-        console.log('aqui')
+
         await user.save();
         
         res.status(201).send({user, token})
@@ -21,7 +21,7 @@ router.post('/user', async (req, res) => {
     }
 });
 
-router.delete('/user', auth, async (req, res) => {
+router.delete('/api/user', auth, async (req, res) => {
     try {
         await req.user.remove();
         await mail.sendCancelMail({username: req.user.username, email: req.user.email})
@@ -31,7 +31,7 @@ router.delete('/user', auth, async (req, res) => {
     }
 })
 
-router.patch('/user', auth, async (req, res) => {
+router.patch('/api/user', auth, async (req, res) => {
 
     const keys = Object.keys(req.body);
     const allowedUpdates = ['username', 'password', 'email'];
@@ -51,7 +51,7 @@ router.patch('/user', auth, async (req, res) => {
     }
 })
 
-router.post('/login', async (req, res) => {
+router.post('/api/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.username, req.body.password);
         const token = await user.generateToken();
@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post('/user/logout', auth, async (req, res) => {
+router.post('/api/user/logout', auth, async (req, res) => {
     try{
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token;
@@ -76,7 +76,7 @@ router.post('/user/logout', auth, async (req, res) => {
     }
 });
 
-router.post('/user/logoutall', auth, async (req, res) => {
+router.post('/api/user/logoutall', auth, async (req, res) => {
     try{
         
         req.user.tokens = [];

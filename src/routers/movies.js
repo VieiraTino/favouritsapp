@@ -4,7 +4,7 @@ const findmovies = require('../utils/findmovies');
 const movieinfo = require('../utils/movieinfo');
 
 // receber o nome do filme e mostrar ao utilizador o resultado do TMDB
-router.get('/movies', (req, res) => {
+router.get('/api/movies', (req, res) => {
     if(!req.query.search){
         return res.send({
             error: "Por favor defina um filme à sua pesquisa"
@@ -25,7 +25,7 @@ router.get('/movies', (req, res) => {
 });
 
 // receber o ID do filme e mostrar ao utilizador a info desse filme
-router.get('/movies/:id', (req, res) => {
+router.get('/api/movies/:id', (req, res) => {
     if(!req.params.id){
         return res.status(400).send({
             error: "Por favor defina o ID do seu filme"
