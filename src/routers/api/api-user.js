@@ -1,11 +1,11 @@
 const express = require('express');
-const User = require('../models/user');
-const Favourites = require('../models/favourite');
+const User = require('../../models/user');
+const Favourites = require('../../models/favourite');
 const router = new express.Router();
-const auth = require('../middleware/auth');
-const Favourite = require('../models/favourite');
+const auth = require('../../middleware/auth');
+const Favourite = require('../../models/favourite');
 
-const mail = require('../emails/email');
+const mail = require('../../emails/email');
 
 router.post('/api/user', async (req, res) => {
     try{
@@ -54,11 +54,13 @@ router.patch('/api/user', auth, async (req, res) => {
 router.post('/api/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.username, req.body.password);
+        
         const token = await user.generateToken();
 
-        res.send({username: user.username, token});
+        res.status(200).send({username: user.username, token});
     } catch(e) {
-        res.status(500).send(e);
+        console.log(e)
+        res.status(500).send({error: 'Username ou password incorretos!'});
     }
 });
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = new express.Router();
-const findmovies = require('../utils/findmovies');
-const movieinfo = require('../utils/movieinfo');
+const findmovies = require('../../utils/findmovies');
+const movieinfo = require('../../utils/movieinfo');
 
 // receber o nome do filme e mostrar ao utilizador o resultado do TMDB
 router.get('/api/movies', (req, res) => {

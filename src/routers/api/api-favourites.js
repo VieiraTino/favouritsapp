@@ -1,12 +1,12 @@
 const express = require('express');
-const Favourite = require('../models/favourite');
-const Movie = require('../models/movie');
+const Favourite = require('../../models/favourite');
+const Movie = require('../../models/movie');
 const router = new express.Router();
-const auth = require('../middleware/auth')
-const movieinfo = require('../utils/movieinfo')
+const auth = require('../../middleware/auth')
+const movieinfo = require('../../utils/movieinfo')
 
-const getMovies = require('../utils/favouriteMovies');
-const mail = require('../emails/email');
+const getMovies = require('../../utils/favouriteMovies');
+const mail = require('../../emails/email');
 
 // criar favorito -> recebe nome a dar ao favorito e id do filme no imdb
 router.post('/api/favourite', auth, async (req, res) => {
@@ -159,5 +159,9 @@ router.get('/api/favourites', auth, async (req, res) => {
     }
 
 })
+
+// router.get('/api/*', (req, res) => {
+//     res.send({error: "Endpoint not found"});
+// });
 
 module.exports = router;
