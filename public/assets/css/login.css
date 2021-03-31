@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 80vw;
+    height: 100vh;
+    margin: 0 auto;
+    outline: 1px solid red;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: max-content;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.form_login {
+    background-color: seagreen;
+    padding: 250px;
+}
+
+input {
+    text-align: center;
+    display: block;
+    padding: 10px;
+    margin: 5px;
+}
+
+img {
+    margin-top: 25px;
+}

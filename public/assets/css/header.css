@@ -1,0 +1,32 @@
+.navBar {
+    outline: 1px solid red;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.navBar_tmdb ul, .navBar_favourites ul {
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.navBar_tmdb li, .navBar_favourites li{
+    list-style-type: none;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 3px;
+    box-shadow: 2px 2px 5px black;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+    box-shadow: none;
+}

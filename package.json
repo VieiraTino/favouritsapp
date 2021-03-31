@@ -4,9 +4,8 @@
   "description": "Save my personal favourite movies",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js -e js,hbs",
-    "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/dev_index.js -e js,hbs",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",

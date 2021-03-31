@@ -1,1 +1,3 @@
 node_modules/
+src/db/dev_database.js
+src/dev_index.js
