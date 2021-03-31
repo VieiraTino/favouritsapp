@@ -63,13 +63,13 @@ userSchema.methods.generateToken = async function() {
 userSchema.statics.findByCredentials = async (username, password) => {
     const user = await User.findOne({ username });
     if(!user){
-        throw new Error('Não é possível efetuar o login');
+        throw new Error('O utilizador não existe');
     }
     
     const isMatch = await bcrypt.compare(password, user.password);
     
     if(!isMatch){
-        throw new Error('Não é possível efetuar o login');
+        throw new Error('A password não está correta');
     }
 
     return user;
