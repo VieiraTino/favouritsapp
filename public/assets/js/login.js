@@ -29,7 +29,7 @@ function login(event) {
         .then((res) => res.json())
         .then((data) => {
             if(data.token){
-                window.location = 'http://localhost:3000/favourites';
+                window.location = 'http://localhost:3000/tmdb';
             } else {
                 alert('Username ou password incorreta');
             }

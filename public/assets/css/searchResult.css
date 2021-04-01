@@ -1,0 +1,25 @@
+.movie_card {
+    display: flex;
+    height: 200px;
+    width: 75%;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.movie_info {
+    
+}
+
+.movie_name {
+    color: red;
+}
+
+.movie_id {
+
+}
+
+.movie_logo {
+    max-height: 100%;
+    margin-right: 10px;
+}
