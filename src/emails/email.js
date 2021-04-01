@@ -6,7 +6,7 @@ const hbs = require('hbs');
 
 const renderToString = require('../utils/compileHTML')
 
-const sendgridAPIKey = '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';
+const sendgridAPIKey = '';
 sgMail.setApiKey(sendgridAPIKey);
 
 const sendWelcomeMail = async (userData) => {
