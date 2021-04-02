@@ -9,7 +9,7 @@ const favouritesRouter = require('./routers/api/api-favourites');
 const frontUserRouter = require('./routers/ui/user');
 
 //database
-require('./db/dev_database');
+require('./db/database');
 
 const app = express();
 const port = process.env.PORT || 3000;
