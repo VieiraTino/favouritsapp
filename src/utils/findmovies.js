@@ -1,7 +1,7 @@
 const request = require('request');
 
 const findmovies = (movie, callback) => {
-    const url = 'https://api.themoviedb.org/3/search/movie?api_key=7b481481d5ec43fb9100bd149b893bd8&query=' + movie
+    const url = 'https://api.themoviedb.org/3/search/movie?api_key=' + process.env.tmdb_api_key + '&query=' + movie;
 
     request({ url, json: true }, (error, { body }) => {
         if (error) {
