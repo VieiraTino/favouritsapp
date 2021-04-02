@@ -10,12 +10,12 @@ function login(event) {
     let formData = new FormData(event.target)
 
     const body = {}
-    for(let key of formData.keys()){ 
+    for (let key of formData.keys()) {
         body[key] = formData.get(key)
     }
 
     const url = 'https://my-movie-favourites.herokuapp.com/api/login'
-    
+
 
     let data = {
         method: 'POST',
@@ -28,7 +28,7 @@ function login(event) {
     fetch(url, data)
         .then((res) => res.json())
         .then((data) => {
-            if(data.token){
+            if (data.token) {
                 window.location = 'https://my-movie-favourites.herokuapp.com/tmdb';
             } else {
                 alert('Username ou password incorreta');

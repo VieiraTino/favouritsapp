@@ -5,7 +5,7 @@ const movieinfo = (id, callback) => {
 
     request({ url, json: true }, (error, { body }) => {
         if (error) {
-            callback('Não foi possível ligar à API', undefined);
+            callback('Não foi possível ligar à API do TMDB', undefined);
         } else {
 
             const result = {

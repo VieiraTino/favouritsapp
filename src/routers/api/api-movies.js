@@ -3,47 +3,45 @@ const router = new express.Router();
 const findmovies = require('../../utils/findmovies');
 const movieinfo = require('../../utils/movieinfo');
 
-// receber o nome do filme e mostrar ao utilizador o resultado do TMDB
+//Procurar um filme no TMDB
 router.get('/api/movies', (req, res) => {
     // recebe uma query "search"
-    if(!req.query.search){
-        return res.send({
-            error: "Por favor defina um filme à sua pesquisa"
-        });
+    if (!req.query.search) {
+        return res.status(500).send({ error: "Por favor defina um filme à sua pesquisa" });
     };
 
     try {
         findmovies(req.query.search, (error, data) => {
-            if(error) {
-                res.status(400).send({ error });
+            if (error) {
+                return res.status(400).send({ error });
             }
-    
-            res.status(201).send(data);
+
+            return res.status(200).send(data);
         });
-    } catch(e) {
-        res.status(400).send(e);
+    } catch (e) {
+        console.log("router.get(TMDBsearch) | " + e)
+        return res.status(500).send({ error: "Não foi possivel efetuar a procura" });
     }
 });
 
-// receber o ID do filme e mostrar ao utilizador a info desse filme
+//Mostrar ao utilizador a info de um filme
 router.get('/api/movies/:id', (req, res) => {
     //recebe o id do TMDB como parametro no url
-    if(!req.params.id){
-        return res.status(400).send({
-            error: "Por favor defina o ID do seu filme"
-        });
+    if (!req.params.id) {
+        return res.status(500).send({ error: "Por favor defina o ID do seu filme" });
     };
 
     try {
         movieinfo(req.params.id, (error, data) => {
-            if(error) {
-                res.status(400).send({ error });
+            if (error) {
+                return res.status(400).send({ error });
             };
-    
-            res.status(201).send(data);
+
+            return res.status(200).send(data);
         });
-    } catch(e) {
-        res.status(400).send(e);
+    } catch (e) {
+        console.log("router.get(movieInfo) | " + e);
+        return res.status(500).send({ error: "Não foi possivel efetuar a procura" });
     };
 });
 

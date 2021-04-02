@@ -1,14 +1,14 @@
 const Movie = require('../models/movie');
 
 
-const getMovies = async (favourite) => {
+const getMovies = async (favourites) => {
 
     let moviesInfo = [];
-    
-    for (const favouriteItem of favourite) {
-        let movie = await Movie.findOne({_id: favouriteItem.myBdId});
-        
-        movieInfo = {userMovieName: favouriteItem.userMovieName, ...movie._doc}
+
+    for (const favouriteItem of favourites) {
+        let movie = await Movie.findOne({ _id: favouriteItem.myBdId });
+
+        movieInfo = { userMovieName: favouriteItem.userMovieName, ...movie._doc }
 
         moviesInfo.push(movieInfo)
     }

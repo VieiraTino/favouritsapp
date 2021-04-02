@@ -9,12 +9,12 @@ function register(event) {
     let formData = new FormData(event.target)
 
     const body = {}
-    for(let key of formData.keys()){ 
+    for (let key of formData.keys()) {
         body[key] = formData.get(key)
     }
 
     const url = 'https://my-movie-favourites.herokuapp.com/api/user'
-    
+
 
     let data = {
         method: 'POST',
@@ -27,7 +27,7 @@ function register(event) {
     fetch(url, data)
         .then((res) => res.json())
         .then((data) => {
-            if(data.errors){
+            if (data.errors) {
                 alert(data.message);
             } else {
                 window.location = 'https://my-movie-favourites.herokuapp.com/';

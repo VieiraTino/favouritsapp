@@ -15,7 +15,7 @@ const movieSchema = new mongoose.Schema(
             type: Object,
             required: true
         }
-    }, 
+    },
     {
         timestamps: true
     }

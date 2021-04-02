@@ -20,7 +20,7 @@ const favouriteSchema = new mongoose.Schema(
             required: true,
             ref: 'Movie'
         }
-    }, 
+    },
     {
         timestamps: true
     }
