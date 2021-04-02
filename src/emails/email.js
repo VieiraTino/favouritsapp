@@ -14,7 +14,7 @@ const sendWelcomeMail = async (userData) => {
   let fileMail = fs.readFileSync(path.join(__dirname + '/templates/welcomeMail.hbs'));
 
   emailData['to'] = userData.email;
-  emailData['from'] = "tinovieira27@gmail.com";
+  emailData['from'] = "yanaramalho88@gmail.com";
   emailData['subject'] = "Registo na aplicação dos teus filmes favoritos";
   emailData['text'] = "Olá, " + userData.username + ".</br>Este é o texto do text";
   emailData['html'] = renderToString(fileMail.toString(), userData);
@@ -43,7 +43,7 @@ const sendFavouritesMail = async (userData, renderData) => {
   userData['favouriteCards'] = cardsCompiled;
 
   emailData['to'] = userData.email;
-  emailData['from'] = "tinovieira27@gmail.com";
+  emailData['from'] = "yanaramalho88@gmail.com";
   emailData['subject'] = "Registo na aplicação dos teus filmes favoritos";
   emailData['text'] = "Olá, " + userData.username + ".</br>Este é o texto do text";
   emailData['html'] = renderToString(fileMail.toString(), userData);
@@ -56,7 +56,7 @@ const sendCancelMail = async (userData) => {
   let fileMail = fs.readFileSync(path.join(__dirname + '/templates/cancelMail.hbs'));
 
   emailData['to'] = userData.email;
-  emailData['from'] = "tinovieira27@gmail.com";
+  emailData['from'] = "yanaramalho88@gmail.com";
   emailData['subject'] = "Registo na aplicação dos teus filmes favoritos";
   emailData['text'] = "Olá, " + userData.username + ".</br>Este é o texto do text";
   emailData['html'] = renderToString(fileMail.toString(), userData);
