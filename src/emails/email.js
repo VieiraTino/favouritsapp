@@ -6,7 +6,7 @@ const hbs = require('hbs');
 
 const renderToString = require('../utils/compileHTML')
 
-const sendgridAPIKey = '';
+const sendgridAPIKey = process.env.sendgrid_api_key;
 sgMail.setApiKey(sendgridAPIKey);
 
 const sendWelcomeMail = async (userData) => {
@@ -36,16 +36,6 @@ const sendFavouritesMail = async (userData, renderData) => {
       ...element.tmdbData
     }
 
-    // userMovieName
-    // idOnTMDB
-    // original_title
-    // sinopse
-    // homepage ???????????
-    // poster_path
-    // release_date
-    // vote_average
-    // vote_count
-    
     renderedCard = renderToString(cardMail.toString(), dataToCompile).toString()
     cardsCompiled = cardsCompiled.concat(renderedCard);
   }
@@ -57,7 +47,7 @@ const sendFavouritesMail = async (userData, renderData) => {
   emailData['subject'] = "Registo na aplicação dos teus filmes favoritos";
   emailData['text'] = "Olá, " + userData.username + ".</br>Este é o texto do text";
   emailData['html'] = renderToString(fileMail.toString(), userData);
-  
+
   sendEmail(emailData);
 };
 
