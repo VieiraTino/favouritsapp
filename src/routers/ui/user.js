@@ -9,6 +9,12 @@ router.get('', (req, res) => {
     });
 });
 
+router.get('/register', (req, res) => {
+    res.render('register', {
+        title: 'Favourites app',
+    });
+});
+
 router.get('/tmdb', (req, res) => {
     res.render('tmdb', {
         title: 'Favourites app',
