@@ -107,8 +107,8 @@ router.patch('/api/favourite/:id', auth, async (req, res) => {
 
         return res.status(200).send(favourite)
     } catch (e) {
-        console.log(e);
-        return res.status(500).send({ error: 'Não foi possivel atualizar o nome do favorito', });
+        console.log("router.patch(patchFav) | " + e);
+        return res.status(500).send({ error: 'Não foi possivel atualizar o nome do favorito' });
     }
 })
 
