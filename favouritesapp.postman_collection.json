@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "5fb89319-3b56-4fb4-8b92-56bec7491839",
+		"name": "favouritesapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Log",
+			"item": [
+				{
+					"name": "User Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Tino\",\r\n    \"password\": \"1234567\",\r\n    \"email\": \"vieira.t@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/user",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Tino\",\r\n    \"password\": \"1234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/login",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDRlNGIxNTBlMzM5ODBlYTBiY2ZmMzgiLCJpYXQiOjE2MTU3NDQ5MzR9.mkpdYq-sz_7Kp4yiusijje_PBYJULpOp0iB78q9UbeY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{deployedFav}}/user/logout",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout All Devices",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDRlNGIxNTBlMzM5ODBlYTBiY2ZmMzgiLCJpYXQiOjE2MTU3NDQ4OTR9.i5RMW6so8txg1z1bYtaEIWKg0W3Zl-7rCOPY1L1prYk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{deployedFav}}/user/logoutall",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"user",
+								"logoutall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3M2Y4NzkxMGNlNjI5NjBhYWI5NjciLCJpYXQiOjE2MTczNzkzMDF9.b13tEk161qXBgueT2m5G4y03evbMMxdRMmXQ9dQyl60",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Tino1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/user",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User (me)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDRlNTNkZGQ1NjUzZTA0YTBiNTY5YmUiLCJpYXQiOjE2MTU3NDYwMTN9.yODfsjZT-A3RtOwECsX-sKiwIdyWb3-1MqjL0H-Xous",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{deployedFav}}/user",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User with auth app",
+			"item": [
+				{
+					"name": "Save a favourite movie",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0ZjM0ZmM3YWQ2NDFjYjRjYTMxM2UiLCJpYXQiOjE2MTYxODAxNDZ9.8rGwOk4Sa0nHGIp0QOJEfR9QzBE1vQmQSIuQZz6cfwQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userMovieName\": \"Avatar\",\r\n    \"idOnTMDB\": 19995\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/favourite",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"favourite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get favourites",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3NDAyZDkxMGNlNjI5NjBhYWI5NmIiLCJpYXQiOjE2MTczNzkzNzN9.1779B-cDdpzA0X_8_r8IC6yEJHSniT6TScKHwmqyNe4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/favourites?movie=Av&email=true",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"favourites"
+							],
+							"query": [
+								{
+									"key": "movie",
+									"value": "Av"
+								},
+								{
+									"key": "email",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update favourite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDUyMjU5N2JkZWM2MDRjYjQwNTUxMWQiLCJpYXQiOjE2MTU5OTYzMTF9.CT_pUac-HM09kIc4kVvcYfAjydNvHZE4Vny1W9t24a0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movie\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/favourite/605225f1bdec604cb4055122",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"favourite",
+								"605225f1bdec604cb4055122"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Favourite info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3NDAyZDkxMGNlNjI5NjBhYWI5NmIiLCJpYXQiOjE2MTczNzkzNzN9.1779B-cDdpzA0X_8_r8IC6yEJHSniT6TScKHwmqyNe4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/deployedFav/60674043910ce62960aab96e",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"deployedFav",
+								"60674043910ce62960aab96e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Favourite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY3NDAyZDkxMGNlNjI5NjBhYWI5NmIiLCJpYXQiOjE2MTczNzkzNzN9.1779B-cDdpzA0X_8_r8IC6yEJHSniT6TScKHwmqyNe4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/favourite/60674043910ce62960aab96e",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"favourite",
+								"60674043910ce62960aab96e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TMDB connection",
+			"item": [
+				{
+					"name": "Search movies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/movies?search=avatar",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"movies"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "avatar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Movie info",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{deployedFav}}/movies/19995",
+							"host": [
+								"{{deployedFav}}"
+							],
+							"path": [
+								"movies",
+								"19995"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
