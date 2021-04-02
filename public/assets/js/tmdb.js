@@ -28,7 +28,7 @@ function searchOnTMDB(event) {
                 data.forEach(element => {
                     const test = `
                         <div class="movie_card">
-                            <img src="${element.poster.includes("null") ? 'http://www.chesapeakevamartialarts.com/blog/wp-content/uploads/2015/10/no_logo.gif' : element.poster}" class="movie_logo"/>
+                            <img src="${element.poster.includes("null") ? '../img/no_logo.gif' : element.poster}" class="movie_logo"/>
                             <div class="movie_info">
                                 <p class="movie_name">Titulo: ${element.movie}</p>
                                 <p class="movie_id">ID: ${element.idOnTMDB}</p>
