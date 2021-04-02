@@ -20,7 +20,7 @@ router.post('/api/user', async (req, res) => {
         return res.status(201).send({ user, token })
     } catch (e) {
         console.log("router.post" + e)
-        return res.status(400).send({ error: 'Ocorreu um erro a criar o utilizador' });
+        return res.status(500).send({ error: 'Ocorreu um erro a criar o utilizador' });
     }
 });
 
@@ -59,7 +59,6 @@ router.patch('/api/user', auth, async (req, res) => {
     }
 })
 
-// testar
 //Fazer login na aplicação
 router.post('/api/login', async (req, res) => {
     //Recebe user/pass
