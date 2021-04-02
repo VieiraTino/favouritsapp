@@ -6,5 +6,5 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 sendToRegisterPage = () => {
-    window.location = 'http://localhost:3000/register';
+    window.location = 'https://my-movie-favourites.herokuapp.com/register';
 }

@@ -14,7 +14,7 @@ function login(event) {
         body[key] = formData.get(key)
     }
 
-    const url = 'http://localhost:3000/api/login'
+    const url = 'https://my-movie-favourites.herokuapp.com/api/login'
     
 
     let data = {
@@ -29,7 +29,7 @@ function login(event) {
         .then((res) => res.json())
         .then((data) => {
             if(data.token){
-                window.location = 'http://localhost:3000/tmdb';
+                window.location = 'https://my-movie-favourites.herokuapp.com/tmdb';
             } else {
                 alert('Username ou password incorreta');
             }

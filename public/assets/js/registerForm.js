@@ -13,7 +13,7 @@ function register(event) {
         body[key] = formData.get(key)
     }
 
-    const url = 'http://localhost:3000/api/user'
+    const url = 'https://my-movie-favourites.herokuapp.com/api/user'
     
 
     let data = {
@@ -30,7 +30,7 @@ function register(event) {
             if(data.errors){
                 alert(data.message);
             } else {
-                window.location = 'http://localhost:3000/';
+                window.location = 'https://my-movie-favourites.herokuapp.com/';
                 alert('Registo efetuado com sucesso, por favor faça login');
             }
         })

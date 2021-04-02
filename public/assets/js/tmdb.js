@@ -15,7 +15,7 @@ function searchOnTMDB(event) {
         body[key] = formData.get(key)
     }
 
-    const url = 'http://localhost:3000/api/movies?search=' + body.search;
+    const url = 'https://my-movie-favourites.herokuapp.com/api/movies?search=' + body.search;
 
     fetch(url)
         .then((res) => res.json())
@@ -32,7 +32,7 @@ function searchOnTMDB(event) {
                             <div class="movie_info">
                                 <p class="movie_name">Titulo: ${element.movie}</p>
                                 <p class="movie_id">ID: ${element.idOnTMDB}</p>
-                                <a href="http://localhost:3000/tmdb/${element.idOnTMDB}">Ver informações do filme</a>
+                                <a href="https://my-movie-favourites.herokuapp.com/tmdb/${element.idOnTMDB}">Ver informações do filme</a>
                             </div>
 
                         </div>
