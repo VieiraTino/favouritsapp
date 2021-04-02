@@ -1,0 +1,12 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    width: 40%;
+    justify-content: center;
+}
+
+.movie_img {
+    height: 400px;
+    margin-right: 30px;
+}

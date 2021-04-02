@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="stylesheet" href="/assets/css/header.css">
-    <link rel="stylesheet" href="/assets/css/tmdb.css">
-    <link rel="stylesheet" href="/assets/css/searchResult.css">
+    <link rel="stylesheet" href="/assets/css/movieInfo.css">
 </head>
 
 <body>
     <div class="container">
-        <div class="form_login">
+        <img src="{{poster_path}}" class="movie_img"/>
+
+        <div class="card">
             <h1>{{original_title}}</h1>
-            <h1>{{sinopse}}</h1>
-            <h1>{{homepage}}</h1>
-            <h1>{{poster_path}}</h1>
-            <h1>{{release_date}}</h1>
-            <h1>{{vote_average}}</h1>
-            <h1>{{vote_count}}</h1>
+            <p>{{sinopse}}</p>
+            <a href="{{homepage}}">Website</a>
+            <p>{{release_date}}</p>
+            <p>{{vote_average}}</p>
+            <p>{{vote_count}}</p>
         </div>
-        
+
         <div class="tmdb_result"></div>
     </div>
 </body>
